@@ -1,21 +1,22 @@
 services:
   - type: web
-    name: TP2_SandraSanchez
+    name: patrimonio2025
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn wsgi:application
-
     envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: settings
+      - key: SECRET_KEY
+        value: yr6rt-p^7^g)g)yc=7j1ek#%7tas(9-@fpd&94#op4!(1y83a)
       - key: DEBUG
         value: False
-      - key: SECRET_KEY
-        value: tu_clave_secreta
       - key: ALLOWED_HOSTS
-        value: tp2-sandrasanchez.onrender.com
-      - key: DATABASE_URL
-        fromDatabase:
+        value: patrimonio2025.onrender.com
+      - fromDatabase:
           name: patrimonio-db
           property: connectionString
+          key: DATABASE_URL
 
 databases:
   - name: patrimonio-db
