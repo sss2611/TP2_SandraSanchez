@@ -3,7 +3,7 @@ services:
     name: TP2_SandraSanchez
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: cd app && gunicorn wsgi:application
+    startCommand: gunicorn app.wsgi:application
 
     envVars:
       - key: DEBUG
