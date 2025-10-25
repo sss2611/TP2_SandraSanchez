@@ -39,7 +39,7 @@
         {% if request.user.is_staff or request.user.is_superuser %}
           <a class="navbar-item" href="/cargar_noticias/"> Cargar Noticias </a>
           <a class="navbar-item" href="/users/"> Admitir Usuarios </a>
-           <a class="navbar-item" href="/mantenimiento/ordenes/"> Mantenimiento </a>
+          <a class="navbar-item" href="/mantenimiento/ordenes/"> Mantenimiento </a>
           {% if pending_users > 0 %}
               <span class="notification-bell">
                   <span class="notification-badge">{{ pending_users }}</span>

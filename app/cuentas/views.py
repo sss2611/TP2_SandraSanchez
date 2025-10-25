@@ -1,15 +1,12 @@
-# 📌 Imports organizados
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .models import CustomUser, Noticia
 
-# 📌 Función de inicio
 def home(request):
     return render(request, 'pages/home.html')
 
-# 📌 Autenticación y acceso
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username", "").strip()
@@ -39,7 +36,6 @@ def profile_view(request):
     return render(request, 'users/profile.html', {'user': request.user, 'pending_users': pending_users})
     # return render(request, 'users/profile.html', {'user': request.user})
 
-# 📌 Registro de usuarios
 def register(request):
     if request.method == 'POST':
         username = request.POST.get('username').strip()
@@ -66,7 +62,7 @@ def register(request):
         )
         user.set_password(password)  
         
-        # ✅ Si el usuario elige "Staff", se marca como staff
+        # Si el usuario elige "Staff", se marca como staff
         if area == "Staff":
             user.is_staff = True  
 
@@ -76,7 +72,7 @@ def register(request):
 
     return render(request, 'auth/register.html')
 
-# 📌 Gestión de usuarios
+# Gestión de usuarios
 @login_required
 def users(request):
     users = CustomUser.objects.all()
@@ -126,7 +122,7 @@ def edit_user(request, user_id):
         user.email = request.POST.get("email")
         user.area = request.POST.get("area")
         
-        # ✅ Actualiza `is_staff` si el usuario elige "Staff" o marca la opción
+        # Actualiza `is_staff` si el usuario elige "Staff" o marca la opción
         user.is_staff = (request.POST.get("area") == "Staff") or request.POST.get("is_staff") == "on"
 
         user.save()
@@ -160,7 +156,7 @@ def update_password(request):
 
     return render(request, 'auth/update_password.html')
 
-# 📌 Noticias
+# Noticias
 def noticias_view(request):
     noticias = Noticia.objects.all().order_by('-fecha_publicacion')
     return render(request, 'auth/news.html', {"noticias": noticias})
@@ -168,7 +164,7 @@ def noticias_view(request):
 def cargar_noticias_view(request):
     return render(request, 'fichas/cargar_noticias.html')
 
-# 📌 Secciones
+# Secciones
 def bellas_artes(request):
     return render(request, 'pages/bellas_artes.html')
 

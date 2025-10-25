@@ -17,5 +17,5 @@ urlpatterns = [
     path('cargar_noticias/', views.cargar_noticias_view, name='cargar_noticias'),  # 📌 Formulario de carga de noticias
     path('bellas_artes/', views.bellas_artes, name='bellas_artes'),
     path('historia/', views.historia, name='historia'),
-     path('formularioAntropologia/', views.formularioAntropologia, name='formularioAntropologia'),
+    path('formularioAntropologia/', views.formularioAntropologia, name='formularioAntropologia'),
     ]
