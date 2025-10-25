@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: TP2-SandraSanchez
+    name: TP2_SandraSanchez
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app.wsgi:application
