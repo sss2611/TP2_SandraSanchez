@@ -31,7 +31,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'urls'
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = 'PT2_SandraSanchez.app.wsgi.application'
 
 TEMPLATES = [
     {
