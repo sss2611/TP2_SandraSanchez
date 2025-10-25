@@ -1,0 +1,18 @@
+# Usar una imagen base de Python
+FROM python:3.12
+
+# Establecer el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copiar e instalar solo requirements.txt primero
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Luego copiar todo el resto del proyecto
+COPY . .
+
+# Exponer el puerto en el que corre Django
+EXPOSE 8000
+
+# Comando por defecto para iniciar el servidor
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
