@@ -1,9 +1,10 @@
 services:
   - type: web
-    name: patrimonio2025
+    name: TP2-SandraSanchez
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app.wsgi:application
+    startCommand: cd app && gunicorn app.wsgi:application
+
     envVars:
       - key: DEBUG
         value: False
