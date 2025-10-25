@@ -30,8 +30,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'app.urls'
-WSGI_APPLICATION = 'app.wsgi.application'
+ROOT_URLCONF = 'urls'
+WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATES = [
     {
