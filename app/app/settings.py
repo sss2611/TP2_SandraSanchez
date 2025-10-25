@@ -6,9 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-mbpinb53*swl7ke=**2@e_w(xl!&#!*nsmgk13v97tcm&5c)ii')
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
-# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'patrimonio2025.onrender.com').split(',')
-
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost,patrimonio2025.onrender.com').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,7 +51,7 @@ TEMPLATES = [
 # Base de datos (PostgreSQL en Render)
 DATABASES = {
     'default': dj_database_url.config(
-        # default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}"
+        default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}"
     )
 }
 
