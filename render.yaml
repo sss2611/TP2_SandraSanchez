@@ -3,10 +3,10 @@ services:
     name: sandra-patrimonio
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn PT2_SandraSanchez.app.wsgi:application
+    startCommand: gunicorn app.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: settings
+        value: app.settings
       - key: SECRET_KEY
         value: yr6rt-p^7^g)g)yc=7j1ek#%7tas(9-@fpd&94#op4!(1y83a)
       - key: DEBUG
