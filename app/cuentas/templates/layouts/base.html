@@ -68,6 +68,15 @@
 
   <div id="columns">
     {% block content %}
+      {% if messages %}
+        <div class="container mt-3">
+          {% for message in messages %}
+            <div class="notification is-success">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
     {% endblock %}
   </div>
 

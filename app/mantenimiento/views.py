@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .forms import OrdenDeTrabajoForm
 from .models import OrdenDeTrabajo
-
+from django.contrib import messages
 
 @login_required
 def crear_orden(request):
@@ -14,11 +14,13 @@ def crear_orden(request):
             orden.operario_creador = request.user
             orden.save()
             request.session["ultima_orden_id"] = orden.id  # Guardar en sesión
-            return redirect("mantenimiento:lista_ordenes")
+
+            messages.success(request, "La orden se guardó correctamente.")
+
+            return redirect("home")
     else:
         form = OrdenDeTrabajoForm()
     return render(request, "mantenimiento/crear_orden.html", {"form": form})
-
 
 @login_required
 def lista_ordenes(request):
